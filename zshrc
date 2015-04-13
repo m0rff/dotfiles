@@ -1,22 +1,27 @@
+ZSH=/usr/share/oh-my-zsh
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+DISABLE_AUTO_UPDATE="true"
 setopt appendhistory autocd extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/morth/.zshrc'
+ZSH_THEME="prose"
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-autoload -U promptinit && promptinit
-prompt pure
 autoload -U colors && colors
-autoload -Uz compinit
-compinit
 
+#function
+ssh() {
+  command ssh "$@"
+  echo "Counting to 60"
+  sleep 60 && exit
+}
 # aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -49,3 +54,8 @@ alias lm='la | more'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias vi='vim'
+alias tmux='tmux -2'
+alias enl='echo "\e[1;32m              ^.                \r\n              Xx\\.              \r\n              X| x\\.            \r\n              X|   ^x)          \r\n              X|    /   ._      \r\n              <X\\.     / x\\.    \r\n                 ^    X\\   x\\._ \r\n        _..xxXXxx.__    ^x%%/^  \r\n    ./x/           ^\\x..        \r\n  ~^^^   _.      ._    ^^       \r\n          ^\\xXXx/^      +._     \r\n                      .%  ^?/   \r\n               xxX     \\. //    \r\n               X|       \\/^     \r\n               X|   .           \r\n               X|  \\X.          \r\n               X|   \\x.         \r\n               X|    )x         \r\n               X|  ./x          \r\n               X| /x^           \r\n               XxxX^            \r\n               XX^              \r\n               X^               \r\n               ^ \r\n"'
+alias scrotclip= 'scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
+plugins=(git archlinux z)
+source $ZSH/oh-my-zsh.sh

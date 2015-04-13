@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -34,9 +35,11 @@ set noswapfile
 set showmatch
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'kolor'
+let g:airline_theme = 'light'
 
 set t_Co=256
 let g:solarized_termcolors=256
+let g:solarized_termtrans=0
 set background=dark
 colorscheme solarized
+let g:tmuxline_preset = 'tmux'
