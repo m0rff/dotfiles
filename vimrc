@@ -10,7 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'will133/vim-dirdiff'
+Plugin 'chriskempson/base16-vim'
 Bundle 'edkolev/tmuxline.vim'
+Plugin 'pearofducks/ansible-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -30,16 +34,24 @@ set cmdheight=1
 syntax on
 set laststatus=2
 
+set pastetoggle=<F2>
+
 set nobackup
 set noswapfile
 set showmatch
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'light'
+let g:airline_theme = 'kolor'
 
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_termtrans=0
 set background=dark
-colorscheme solarized
-let g:tmuxline_preset = 'tmux'
+colorscheme base16-default
+let base16colorspace=256
+
+let g:tmuxline_preset = {
+      \'a'    : '%R',
+      \'c'    : ['#(whoami)', '#(uptime | cud -d " " -f 1,2,3)'],
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'y'    : ['%R', '%a', '%Y'],
+      \'z'    : '#H'}
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null

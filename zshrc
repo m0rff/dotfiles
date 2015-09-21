@@ -1,4 +1,4 @@
-ZSH=/usr/share/oh-my-zsh
+ZSH=~/.oh-my-zsh
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -9,7 +9,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/morth/.zshrc'
-ZSH_THEME="prose"
+ZSH_THEME="pygmalion"
 
 autoload -Uz compinit
 compinit
@@ -40,7 +40,7 @@ if [ $UID -ne 0 ]; then
 fi
 
 alias update='yaourt -Syyua'
-
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # ls
 alias ls='ls -hF --color=auto'
 alias lr='ls -R'                    # recursive ls
@@ -57,5 +57,8 @@ alias vi='vim'
 alias tmux='tmux -2'
 alias enl='echo "\e[1;32m              ^.                \r\n              Xx\\.              \r\n              X| x\\.            \r\n              X|   ^x)          \r\n              X|    /   ._      \r\n              <X\\.     / x\\.    \r\n                 ^    X\\   x\\._ \r\n        _..xxXXxx.__    ^x%%/^  \r\n    ./x/           ^\\x..        \r\n  ~^^^   _.      ._    ^^       \r\n          ^\\xXXx/^      +._     \r\n                      .%  ^?/   \r\n               xxX     \\. //    \r\n               X|       \\/^     \r\n               X|   .           \r\n               X|  \\X.          \r\n               X|   \\x.         \r\n               X|    )x         \r\n               X|  ./x          \r\n               X| /x^           \r\n               XxxX^            \r\n               XX^              \r\n               X^               \r\n               ^ \r\n"'
 alias scrotclip= 'scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
-plugins=(git archlinux z)
+alias upload='~/upload.sh'
+alias shot='scrot -s;  upload $(ls -Rt *.png| head -n1)'
+plugins=(git archlinux z extract zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
