@@ -9,7 +9,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/morth/.zshrc'
-ZSH_THEME="pygmalion"
+ZSH_THEME="kolo"
 
 autoload -Uz compinit
 compinit
