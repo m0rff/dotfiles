@@ -11,6 +11,9 @@ bindkey -e
 zstyle :compinstall filename '/home/morth/.zshrc'
 ZSH_THEME="kolo"
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
