@@ -43,22 +43,14 @@ alias update='yaourt -Syyua'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # ls
 alias ls='ls -hF --color=auto'
-alias lr='ls -R'                    # recursive ls
-alias ll='ls -l'
-alias la='ll -A'
-alias lA='ls -d .??*'               # show only hidden files
 alias lx='ll -BX'                   # sort by extension
 alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias vi='vim'
 alias tmux='tmux -2'
 alias enl='echo "\e[1;32m              ^.                \r\n              Xx\\.              \r\n              X| x\\.            \r\n              X|   ^x)          \r\n              X|    /   ._      \r\n              <X\\.     / x\\.    \r\n                 ^    X\\   x\\._ \r\n        _..xxXXxx.__    ^x%%/^  \r\n    ./x/           ^\\x..        \r\n  ~^^^   _.      ._    ^^       \r\n          ^\\xXXx/^      +._     \r\n                      .%  ^?/   \r\n               xxX     \\. //    \r\n               X|       \\/^     \r\n               X|   .           \r\n               X|  \\X.          \r\n               X|   \\x.         \r\n               X|    )x         \r\n               X|  ./x          \r\n               X| /x^           \r\n               XxxX^            \r\n               XX^              \r\n               X^               \r\n               ^ \r\n"'
-alias scrotclip= 'scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
-alias upload='~/upload.sh'
-alias shot='scrot -s;  upload $(ls -Rt *.png| head -n1)'
-plugins=(git archlinux z extract zsh-syntax-highlighting)
+plugins=(git archlinux z extract zsh-syntax-highlighting common-aliases git-extras systemd tmux)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

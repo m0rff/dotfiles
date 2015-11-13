@@ -11,10 +11,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'will133/vim-dirdiff'
-Plugin 'chriskempson/base16-vim'
 Bundle 'edkolev/tmuxline.vim'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -45,7 +45,6 @@ set laststatus=2
 
 set pastetoggle=<F2>
 
-set nobackup
 set noswapfile
 set showmatch
 
@@ -59,10 +58,12 @@ map <left> <nop>
 map <right> <nop>
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'kolor'
+let g:airline_theme = 'powerlineish'
+let g:rehash256=1
 
 set background=dark
-colorscheme base16-default
+let g:molokai_original=1
+colorscheme molokai
 let base16colorspace=256
 
 let g:tmuxline_preset = {
@@ -74,3 +75,11 @@ let g:tmuxline_preset = {
       \'z'    : '#H'}
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+" python hacks
+autocmd Filetype python set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufWritePre * :%s/\s\+$//e
+" double escape for removing search highlights
+nnoremap <silent> <Esc><Esc> :let @/=""<CR>
+" ycm
+let g:ycm_key_list_select_completion=['<Tab>', '<Down>']
+let g:ycm_key_list_previous_completion=['<S-Tab>', '<Up>']
