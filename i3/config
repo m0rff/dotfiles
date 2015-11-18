@@ -210,6 +210,7 @@ client.unfocused #666666 #666666 #ffffff
 client.urgent #aa0000 #990000 #ffffff
 
 assign [class="chromium"] 1: www
+assign [class="Thunderbird"] 4: mail
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a

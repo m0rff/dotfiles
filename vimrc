@@ -15,6 +15,7 @@ Bundle 'edkolev/tmuxline.vim'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'markcornick/vim-vagrant'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
