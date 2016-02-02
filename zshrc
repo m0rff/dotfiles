@@ -26,7 +26,6 @@ ssh() {
   sleep 60 && exit
 }
 # aliases
-alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p -v'
 alias df='df -h'
@@ -54,6 +53,7 @@ alias vdir='vdir --color=auto'
 alias vi='vim'
 alias tmux='tmux -2'
 alias enl='echo "\e[1;32m              ^.                \r\n              Xx\\.              \r\n              X| x\\.            \r\n              X|   ^x)          \r\n              X|    /   ._      \r\n              <X\\.     / x\\.    \r\n                 ^    X\\   x\\._ \r\n        _..xxXXxx.__    ^x%%/^  \r\n    ./x/           ^\\x..        \r\n  ~^^^   _.      ._    ^^       \r\n          ^\\xXXx/^      +._     \r\n                      .%  ^?/   \r\n               xxX     \\. //    \r\n               X|       \\/^     \r\n               X|   .           \r\n               X|  \\X.          \r\n               X|   \\x.         \r\n               X|    )x         \r\n               X|  ./x          \r\n               X| /x^           \r\n               XxxX^            \r\n               XX^              \r\n               X^               \r\n               ^ \r\n"'
+alias spot="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause >> /dev/null 2>&1"
 plugins=(git archlinux z extract zsh-syntax-highlighting common-aliases git-extras systemd tmux)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

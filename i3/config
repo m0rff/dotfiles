@@ -112,24 +112,19 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #Name the workspaces
-set $tag1 "1: www"
-set $tag3 "3: console"
-set $tag2 "2: edit"
-set $tag4 "4: mail"
-set $tag5 "5: keepass"
 
-workspace "1: www" output HDMI1
-workspace "3: console" output HDMI2
-workspace "2: edit" output HDMI1
-workspace "4: mail" output HDMI2
-workspace "5: keepass" output HDMI1
+workspace "1" output HDMI1
+workspace "3" output HDMI2
+workspace "2" output HDMI1
+workspace "4" output HDMI2
+workspace "5" output HDMI1
 
 # switch to workspace
-bindsym $mod+1 workspace $tag1
-bindsym $mod+2 workspace $tag2
-bindsym $mod+3 workspace $tag3
-bindsym $mod+4 workspace $tag4
-bindsym $mod+5 workspace $tag5
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -209,8 +204,8 @@ client.focused #007fbf #007fbf #ffffff
 client.unfocused #666666 #666666 #ffffff
 client.urgent #aa0000 #990000 #ffffff
 
-assign [class="chromium"] 1: www
-assign [class="Thunderbird"] 4: mail
+assign [class="chromium"] 1
+assign [class="Thunderbird"] 4
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -223,11 +218,11 @@ assign [class="Thunderbird"] 4: mail
 #######################################################################
 #exec i3-config-wizard
 exec --no-startup-id i3-msg 'exec davmail'
-exec --no-startup-id feh --bg-fill ~/wallpaper.jpg
-exec --no-startup-id i3-msg 'workspace 3: console; exec xfce4-terminal -e "tmux -2"'
-exec --no-startup-id i3-msg 'workspace 2: edit; exec subl3'
-exec --no-startup-id i3-msg 'workspace 4: mail; exec thunderbird'
-exec --no-startup-id i3-msg 'workspace 1: www; exec chromium'
+exec --no-startup-id feh --bg-fill /home/morth/fractals/qsave_2016-01-27_003_HDR33.jpeg
+exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal -e "tmux -2"'
+#exec --no-startup-id i3-msg 'workspace 2: edit; exec subl3'
+exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
+exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 # Custom KeyBinds
 bindsym $mod+dead_circumflex exec "sh ~/.i3/i3lock.sh"
 bindsym Print exec "scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Screenshots/'"
@@ -249,3 +244,5 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 bindcode $mod+68 exec amixer set Master 5%-
 bindcode $mod+69 exec amixer set Master 5%+
+bindcode $mod+70 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindcode $mod+71 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
