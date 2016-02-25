@@ -19,12 +19,6 @@ compinit
 # End of lines added by compinstall
 autoload -U colors && colors
 
-#function
-ssh() {
-  command ssh "$@"
-  echo "Counting to 60"
-  sleep 60 && exit
-}
 # aliases
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p -v'

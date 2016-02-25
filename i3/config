@@ -179,9 +179,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    mode hide
-    font pango:DejaVu Sans Mono, Icons 8
     tray_output HDMI1
+    font pango:DejaVu Sans Mono, Icons 8
     colors {
         # Whole color settings
         background #000000
@@ -219,7 +218,7 @@ assign [class="Thunderbird"] 4
 #exec i3-config-wizard
 exec --no-startup-id i3-msg 'exec davmail'
 exec --no-startup-id feh --bg-fill /home/morth/fractals/qsave_2016-01-27_003_HDR33.jpeg
-exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal -e "tmux -2"'
+exec --no-startup-id i3-msg 'workspace 3; exec termite --exec="tmux -2"'
 #exec --no-startup-id i3-msg 'workspace 2: edit; exec subl3'
 exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
 exec --no-startup-id i3-msg 'workspace 1; exec chromium'

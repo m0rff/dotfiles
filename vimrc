@@ -13,7 +13,6 @@ Plugin 'bling/vim-airline'
 Plugin 'will133/vim-dirdiff'
 Bundle 'edkolev/tmuxline.vim'
 Plugin 'pearofducks/ansible-vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'tmhedberg/SimpylFold'
@@ -22,7 +21,9 @@ Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-
+Plugin 'vim-airline/vim-airline-themes'
+Bundle 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -33,7 +34,7 @@ set incsearch
 set number
 set expandtab
 set tabstop=4
-set nowrap
+"set nowrap
 set shiftwidth=4
 set hlsearch
 set ic
@@ -73,6 +74,7 @@ let g:rehash256=1
 
 let g:molokai_original=1
 colorscheme molokai
+set background=dark
 let base16colorspace=256
 
 let g:tmuxline_preset = {
@@ -96,11 +98,6 @@ let g:ycm_key_list_previous_completion=['<S-Tab>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion=1
 " python pep8
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
-" html js css
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
 "python with virtualenv support
 py << EOF
 import os
@@ -112,3 +109,15 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 " nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_flake8_args='--ignore=E401,E501'
+highlight Normal guibg=black guifg=white
+highlight Normal ctermbg=none
