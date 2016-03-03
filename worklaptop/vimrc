@@ -24,6 +24,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline-themes'
 Bundle 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Bundle 'farseer90718/vim-taskwarrior'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -33,9 +34,9 @@ set showcmd
 set incsearch
 set number
 set expandtab
-set tabstop=4
+set tabstop=2
 "set nowrap
-set shiftwidth=4
+set shiftwidth=2
 set hlsearch
 set ic
 set autoindent
