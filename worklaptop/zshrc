@@ -9,7 +9,9 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/morth/.zshrc'
-ZSH_THEME="kolo"
+ZSH_THEME="agnoster"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"

@@ -217,10 +217,11 @@ assign [class="Thunderbird"] 4
 #######################################################################
 #exec i3-config-wizard
 exec --no-startup-id i3-msg 'exec davmail'
-exec --no-startup-id feh --bg-fill /home/morth/fractals/qsave_2016-01-27_003_HDR33.jpeg
+#exec --no-startup-id feh --bg-fill /home/morth/fractals/qsave_2016-01-27_003_HDR33.jpeg
 exec --no-startup-id i3-msg 'workspace 3; exec termite --exec="tmux -2"'
-#exec --no-startup-id i3-msg 'workspace 2: edit; exec subl3'
+exec --no-startup-id i3-msg 'workspace 2; exec spotify'
 exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
+exec --no-startup-id i3-msg 'workspace 5; exec telegram'
 exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 # Custom KeyBinds
 bindsym $mod+dead_circumflex exec "sh ~/.i3/i3lock.sh"

@@ -64,10 +64,9 @@ set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 nnoremap ; :
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
