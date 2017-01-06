@@ -1,8 +1,0 @@
-- yaourt:
-  - vim
-  - curl
-  - wget
-  - zsh
-  - tmux
-  - git
-  - htop

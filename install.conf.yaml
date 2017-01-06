@@ -11,7 +11,9 @@
   - '~/.oh-my-zsh'
 
 - shell:
+  - [git pull origin master, Updating repo]
   - [git submodule update --init --recursive, Installing submodules]
+  - [git submodule update --init --remote, Updating submodules]
 
 - link:
     ~/.config/i3: config/i3
@@ -30,8 +32,6 @@
     ~/.zshrc: config/zshrc
 
 - shell:
-  - [git pull origin master, Updating repo]
-  - [git submodule update --init --remote, Updating submodules]
   - command: ./fonts/install.sh
     stdin: true
     stdout: true
