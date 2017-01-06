@@ -35,3 +35,6 @@
   - command: ./fonts/install.sh
     stdin: true
     stdout: true
+  - command: vim +PluginInstall +qall
+    stdin: true
+    stdout: true
