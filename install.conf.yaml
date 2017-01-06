@@ -25,7 +25,6 @@
     ~/.vim: vim
     ~/.vimrc: config/vimrc
     ~/.zshrc: config/zshrc
-    ~/.Xresources: Xresources
 
 - shell:
   - [git pull origin master, Updating repo]
@@ -33,7 +32,3 @@
   - command: ./fonts/install.sh
     stdin: true
     stdout: true
-  - command: ./install -p dotbot-yaourt/yaourt.py -c packages.conf.yaml
-    stdin: true
-    stdout: true
-  - [git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim]
