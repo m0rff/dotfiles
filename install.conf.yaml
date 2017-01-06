@@ -22,7 +22,10 @@
       relink: true
       path: oh-my-zsh/
     ~/.tmux.conf: config/tmux.conf
-    ~/.vim: vim
+    ~/.vim:
+      force: true
+      relink: true
+      path: vim/
     ~/.vimrc: config/vimrc
     ~/.zshrc: config/zshrc
 
