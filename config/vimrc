@@ -9,9 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'will133/vim-dirdiff'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Bundle 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -69,38 +66,5 @@ let base16colorspace=256
 
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-" python hacks
-autocmd BufWritePre * :%s/\s\+$//e
-" double escape for removing search highlights
-nnoremap <silent> <Esc><Esc> :let @/=""<CR>
-" fold
-nnoremap <space> za
-" ycm
-let g:ycm_key_list_select_completion=['<Tab>', '<Down>']
-let g:ycm_key_list_previous_completion=['<S-Tab>', '<Up>']
-let g:ycm_autoclose_preview_window_after_completion=1
-" python pep8
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-" nerdtree
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_flake8_args='--ignore=E401,E501'
 highlight Normal guibg=black guifg=white
 highlight Normal ctermbg=none
