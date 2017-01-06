@@ -19,6 +19,7 @@
     ~/.config/i3: config/i3
     ~/.config/termite: config/termite
     ~/.dotfiles: ''
+    ~/.gitconfig: gitconfig
     ~/.oh-my-zsh:
       force: true
       relink: true
