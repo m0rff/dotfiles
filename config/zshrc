@@ -1,0 +1,55 @@
+ZSH=~/.oh-my-zsh
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+DISABLE_AUTO_UPDATE="false"
+setopt appendhistory autocd extendedglob
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/morth/.zshrc'
+DEFAULT_USER="mmackiewicz"
+ZSH_THEME="agnoster"
+COMPLETION_WAITING_DOTS="true"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+autoload -U +X compinit && compinit
+# End of lines added by compinstall
+autoload -U colors && colors
+
+# aliases
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p -v'
+alias df='df -h'
+alias du='du -c -h'
+alias openports='netstat --all --numeric --programs --inet'
+
+# privileged access
+if [ $UID -ne 0 ]; then
+  alias sudo='sudo '
+  alias scat='sudo cat'
+  alias sn='sudo nano'
+  alias root='sudo -s'
+  alias reboot='sudo reboot'
+fi
+
+alias update='yaourt -Syyua'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+# ls
+alias ls='ls -hF --color=auto'
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lm='la | more'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias vi='vim'
+alias tmux='tmux -2'
+alias enl='echo "\e[1;32m              ^.                \r\n              Xx\\.              \r\n              X| x\\.            \r\n              X|   ^x)          \r\n              X|    /   ._      \r\n              <X\\.     / x\\.    \r\n                 ^    X\\   x\\._ \r\n        _..xxXXxx.__    ^x%%/^  \r\n    ./x/           ^\\x..        \r\n  ~^^^   _.      ._    ^^       \r\n          ^\\xXXx/^      +._     \r\n                      .%  ^?/   \r\n               xxX     \\. //    \r\n               X|       \\/^     \r\n               X|   .           \r\n               X|  \\X.          \r\n               X|   \\x.         \r\n               X|    )x         \r\n               X|  ./x          \r\n               X| /x^           \r\n               XxxX^            \r\n               XX^              \r\n               X^               \r\n               ^ \r\n"'
+alias spot="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause >> /dev/null 2>&1"
+alias shot="scrot -s ~/foo.png && xclip -selection clipboard -target image/png -i < ~/foo.png && rm -f ~/foo.png"
+plugins=(git archlinux z extract zsh-syntax-highlighting common-aliases git-extras systemd tmux docker)
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

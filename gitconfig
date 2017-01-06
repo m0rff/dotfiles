@@ -1,0 +1,8 @@
+[user]
+	name = Moritz Mackiewicz
+	email = morth@kmpt.nz
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[color]
+	ui = auto

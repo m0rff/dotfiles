@@ -1,0 +1,12 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "dotbot-yaourt"]
+	path = dotbot-yaourt
+	url = https://github.com/niklas-heer/dotbot-yaourt
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts
