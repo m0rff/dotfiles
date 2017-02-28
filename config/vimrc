@@ -9,11 +9,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'jnurmine/Zenburn'
 Bundle 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " colorschemes
-Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -36,16 +37,11 @@ set smarttab
 set ignorecase
 set incsearch
 set encoding=utf-8
-
 set history=1000
 set undolevels=1000
-
-let python_highlight_all=1
 syntax on
 set laststatus=2
-
 set pastetoggle=<F2>
-
 set noswapfile
 set showmatch
 
@@ -58,13 +54,9 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 let g:rehash256=1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
 
-let g:molokai_original=1
-colorscheme molokai
 set background=dark
-let base16colorspace=256
+colorscheme solarized
 
-
-au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-highlight Normal guibg=black guifg=white
-highlight Normal ctermbg=none

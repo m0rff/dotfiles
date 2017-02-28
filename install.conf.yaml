@@ -6,7 +6,6 @@
 
 - clean:
   - '~'
-  - '~/.config'
   - '~/.vim'
   - '~/.oh-my-zsh'
 
@@ -16,26 +15,20 @@
   - [git submodule update --init --remote, Updating submodules]
 
 - link:
-    ~/.config/i3: config/i3
-    ~/.config/termite: config/termite
-    ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.oh-my-zsh:
       force: true
       relink: true
       path: oh-my-zsh/
-    ~/.tmux.conf: config/tmux.conf
     ~/.vim:
       force: true
       relink: true
       path: vim/
     ~/.vimrc: config/vimrc
     ~/.zshrc: config/zshrc
+    ~/.oh-my-zsh/themes/morth.zsh-theme: config/morth.zsh-theme
 
 - shell:
-  - command: ./fonts/install.sh
-    stdin: true
-    stdout: true
   - command: vim +PluginInstall +qall
     stdin: true
     stdout: true
