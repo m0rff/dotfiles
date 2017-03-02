@@ -31,16 +31,6 @@
 CURRENT_BG='NONE'
 SHOW_STASH_SEGMENT=1
 
-# Characters
-SEGMENT_SEPARATOR="\ue0b0"
-RSEGMENT_SEPARATOR="\ue0b2"
-PLUSMINUS="\u00b1"
-BRANCH="\ue0a0"
-DETACHED="\u27a6"
-CROSS="\u2718"
-LIGHTNING="\u26a1"
-GEAR="\u2699"
-
 # Special Powerline characters
 
 () {
@@ -56,6 +46,13 @@ GEAR="\u2699"
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
   SEGMENT_SEPARATOR=$'\ue0b0'
+  RSEGMENT_SEPARATOR="\ue0b2"
+  PLUSMINUS="\u00b1"
+  BRANCH="\ue0a0"
+  DETACHED="\u27a6"
+  CROSS="\u2718"
+  LIGHTNING="\u26a1"
+  GEAR="\u2699"
 }
 
 # Begin a segment
