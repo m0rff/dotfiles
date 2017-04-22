@@ -1,6 +1,5 @@
 # Oh-My-Zsh : Nico Theme (https://gist.github.com/ntarocco/3027ed75b6e8fc1fd119)
 # Modified by : Carlos Cuesta
-# Again modified by: m0rth1um
 # This file goes to /Users/Username/.oh-my-zsh/themes/nico.zsh-theme
 
 PROMPT='$(_user_host)${_current_dir}$(git_prompt_info)
