@@ -1,9 +1,12 @@
+# Set locales
 export LC_ALL=en_US.UTF-8 && export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+# Set up zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
+# Set some good ZSH options
 export HISTFILE=~/.zsh_history # Where it gets saved
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -18,17 +21,21 @@ setopt hist_save_no_dups # Don't write duplicate entries in the history file.
 setopt share_history # share history between multiple shells
 setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
 
+# zplug themeing stuff
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+# Autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
 if zplug check zsh-users/zsh-autosuggestions; then
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down) # Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}") # Remove *-line-or-history widgets from list of widgets that clear the autosuggestion to avoid conflict with history-substring-search-* widgets
 fi
 
+# Syntax highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
 
+# History Substring Search
 zplug "zsh-users/zsh-history-substring-search"
 if zplug check zsh-users/zsh-history-substring-search; then
   zmodload zsh/terminfo
@@ -36,10 +43,12 @@ if zplug check zsh-users/zsh-history-substring-search; then
   bindkey "$terminfo[cud1]" history-substring-search-down
 fi
 
+# Enhanced cd, enhanced ls and alias tips
 zplug "supercrabtree/k"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug 'djui/alias-tips'
 
+# Oh my ZSH plugins: Git, Docker, Composer
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/composer",   from:oh-my-zsh
 zplug "plugins/docker",   from:oh-my-zsh
@@ -55,10 +64,12 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+# Some handy aliases
 alias v='vim '
 alias l='exa -bgl'
 alias ls='exa'
 
+# Autocomplete support SSH configs from Google Drive
 h=()
 if [[ -r ~/.ssh/config ]]; then
   h=($h ${${${(@M)${(f)"$(cat ~/Google\ Drive\ File\ Stream/My\ Drive/Intern/Sync/ssh/*.sshconf ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
@@ -71,11 +82,8 @@ if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:slogin:*' hosts $h
 fi
 
+# Load fzf. See https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# ITerm integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
