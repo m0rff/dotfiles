@@ -19,7 +19,8 @@ setopt share_history # share history between multiple shells
 setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
 
 zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 zplug "zsh-users/zsh-autosuggestions"
 if zplug check zsh-users/zsh-autosuggestions; then
@@ -61,7 +62,7 @@ alias ls='exa'
 
 h=()
 if [[ -r ~/.ssh/config ]]; then
-  h=($h ${${${(@M)${(f)"$(cat ~/Google\ Drive\ File\ Stream/My\ Drive/Intern/Sync/ssh/*.sshconf ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+  h=($h ${${${(@M)${(f)"$(cat /Volumes/GoogleDrive/My\ Drive/Intern/Sync/ssh/*.sshconf ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
 fi
 if [[ -r ~/.ssh/known_hosts ]]; then
   h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
@@ -75,7 +76,11 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
