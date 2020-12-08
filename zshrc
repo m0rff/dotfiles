@@ -130,12 +130,6 @@ zinit light-mode compile"handler" for \
 
 setopt promptsubst
 
-# These plugins provide many aliases - atload''
-zinit wait lucid for \
-        OMZ::lib/git.zsh \
-    atload"unalias grv" \
-        OMZ::plugins/git/git.plugin.zsh
-
 # Provide A Simple Prompt Till The Theme Loads
 PS1="READY >"
 zinit for \
@@ -155,7 +149,7 @@ zinit wait lucid light-mode for \
       OMZ::lib/functions.zsh \
       OMZ::lib/misc.zsh \
       OMZ::lib/grep.zsh \
-      OMZL::git.zsh \
+      OMZ::lib/git.zsh \
       OMZ::plugins/git-auto-fetch/git-auto-fetch.plugin.zsh \
       junegunn/fzf-bin \
   atload"unalias grv" \
