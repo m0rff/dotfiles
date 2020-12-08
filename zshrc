@@ -171,6 +171,6 @@ zinit wait lucid light-mode for \
       OMZ::plugins/thefuck/thefuck.plugin.zsh
 
 alias ls=exa
-alias l='exa -bgl'o
+alias l='exa -bgl'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
