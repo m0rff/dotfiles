@@ -133,7 +133,6 @@ setopt promptsubst
 # Provide A Simple Prompt Till The Theme Loads
 PS1="READY >"
 zinit for \
-    light-mode zdharma/history-search-multi-word \
     light-mode pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
 
@@ -150,8 +149,6 @@ zinit wait lucid light-mode for \
       OMZ::lib/misc.zsh \
       OMZ::lib/grep.zsh \
       OMZ::lib/git.zsh \
-      OMZ::plugins/git-auto-fetch/git-auto-fetch.plugin.zsh \
-      junegunn/fzf-bin \
   atload"unalias grv" \
       OMZP::git \
   atinit"zicompinit; zicdreplay" \
@@ -161,10 +158,18 @@ zinit wait lucid light-mode for \
       zsh-users/zsh-autosuggestions \
   as"completion" \
       OMZ::plugins/docker/_docker \
-      OMZ::plugins/composer/composer.plugin.zsh \
-      OMZ::plugins/thefuck/thefuck.plugin.zsh
+      OMZ::plugins/composer/composer.plugin.zsh
+
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
 
 alias ls=exa
 alias l='exa -bgl'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+archey -o
+
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
