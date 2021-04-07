@@ -140,8 +140,18 @@ zinit for \
 # Env
 # - - - - - - - - - - - - - - - - - - - -
 ZSH_AUTOSUGGEST_USE_ASYNC=1
-ZZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# - - - - - - - - - - - - - - - - - - - -
+# Git Plugins wait 1
+# - - - - - - - - - - - - - - - - - - - -
+zinit as"null" wait"1" lucid for \
+    sbin    Fakerr/git-recall \
+    sbin    cloneopts paulirish/git-open \
+    make"PREFIX=$ZPFX install" \
+            tj/git-extras \
+    sbin"bin/git-dsf;bin/diff-so-fancy" \
+            zdharma/zsh-diff-so-fancy \
 
 # - - - - - - - - - - - - - - - - - - - -
 # Plugins gottta go fast
@@ -153,41 +163,13 @@ zinit wait lucid light-mode for \
       OMZ::lib/functions.zsh \
       OMZ::lib/misc.zsh \
       OMZ::lib/grep.zsh \
-      OMZ::lib/git.zsh \
-  atload"unalias grv" \
-      OMZP::git \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
-      OMZ::plugins/command-not-found/command-not-found.plugin.zsh \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
   as"completion" \
       OMZ::plugins/docker/_docker \
       OMZ::plugins/composer/composer.plugin.zsh
-
-# - - - - - - - - - - - - - - - - - - - -
-# FZF here for compatiblity
-# - - - - - - - - - - - - - - - - - - - -
-zinit ice from"gh-r" as"program"
-zinit load junegunn/fzf-bin
-
-# - - - - - - - - - - - - - - - - - - - -
-# Git Plugins wait 1
-# - - - - - - - - - - - - - - - - - - - -
-zinit as"null" wait"1" lucid for \
-    sbin    Fakerr/git-recall \
-    sbin    cloneopts paulirish/git-open \
-    sbin    paulirish/git-recent \
-    sbin    davidosomething/git-my \
-    sbin atload"export _MENU_THEME=legacy" \
-            arzzen/git-quick-stats \
-    sbin    iwata/git-now \
-    make"PREFIX=$ZPFX install" \
-            tj/git-extras \
-    sbin"bin/git-dsf;bin/diff-so-fancy" \
-            zdharma/zsh-diff-so-fancy \
-    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
-            zdharma/git-url
 
 # - - - - - - - - - - - - - - - - - - - -
 # Aliases
@@ -199,12 +181,6 @@ alias l='exa -bgl'
 # iTerm
 # - - - - - - - - - - - - - - - - - - - -
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-# - - - - - - - - - - - - - - - - - - - -
-# Cool archey infos
-# - - - - - - - - - - - - - - - - - - - -
-archey -o
 
 # - - - - - - - - - - - - - - - - - - - -
 # FZF Setup
