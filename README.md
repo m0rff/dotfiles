@@ -1,6 +1,6 @@
 # ZSH dotfile for macOS and iTerm.
 
-![iTerm2 with this config](todo)
+![iTerm2 with this config](https://github.com/m0rth1um/dotfiles/blob/master/doc/img/screen.png?raw=true)
 
 ## Readme
 Read the file, read the docs from the used things.
