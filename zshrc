@@ -135,11 +135,16 @@ PS1="READY >"
 zinit for \
     light-mode pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
+                
+# - - - - - - - - - - - - - - - - - - - -
+# Env
+# - - - - - - - - - - - - - - - - - - - -
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+ZZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # - - - - - - - - - - - - - - - - - - - -
-# Plugins
+# Plugins gottta go fast
 # - - - - - - - - - - - - - - - - - - - -
 
 zinit wait lucid light-mode for \
@@ -160,16 +165,56 @@ zinit wait lucid light-mode for \
       OMZ::plugins/docker/_docker \
       OMZ::plugins/composer/composer.plugin.zsh
 
+# - - - - - - - - - - - - - - - - - - - -
+# FZF here for compatiblity
+# - - - - - - - - - - - - - - - - - - - -
 zinit ice from"gh-r" as"program"
 zinit load junegunn/fzf-bin
 
+# - - - - - - - - - - - - - - - - - - - -
+# Git Plugins wait 1
+# - - - - - - - - - - - - - - - - - - - -
+zinit as"null" wait"1" lucid for \
+    sbin    Fakerr/git-recall \
+    sbin    cloneopts paulirish/git-open \
+    sbin    paulirish/git-recent \
+    sbin    davidosomething/git-my \
+    sbin atload"export _MENU_THEME=legacy" \
+            arzzen/git-quick-stats \
+    sbin    iwata/git-now \
+    make"PREFIX=$ZPFX install" \
+            tj/git-extras \
+    sbin"bin/git-dsf;bin/diff-so-fancy" \
+            zdharma/zsh-diff-so-fancy \
+    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
+            zdharma/git-url
+
+# - - - - - - - - - - - - - - - - - - - -
+# Aliases
+# - - - - - - - - - - - - - - - - - - - -
 alias ls=exa
 alias l='exa -bgl'
 
+# - - - - - - - - - - - - - - - - - - - -
+# iTerm
+# - - - - - - - - - - - - - - - - - - - -
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# - - - - - - - - - - - - - - - - - - - -
+# Cool archey infos
+# - - - - - - - - - - - - - - - - - - - -
 archey -o
 
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-
+# - - - - - - - - - - - - - - - - - - - -
+# FZF Setup
+# - - - - - - - - - - - - - - - - - - - -
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# - - - - - - - - - - - - - - - - - - - -
+# NVM
+# - - - - - - - - - - - - - - - - - - - -
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+

@@ -1,8 +1,25 @@
-# dotfiles
-Dotfiles
+# ZSH dotfile for macOS and iTerm.
 
-For macOS and iTerm.
+![iTerm2 with this config](todo)
 
+## Readme
+Read the file, read the docs from the used things.
+You need to install a few things (iTerm2, brew, zsh, zinit, git, composer, docker, fzf, ...)
+
+## Installation
+Copy to `~/.zshrc`
+
+## Execute to install/update
+```
+source ~/.zshrc
+```
+
+## Executeto update the zinit plugins
+```
+zinit update
+```
+
+## Features
 - nice completion
 - kinda fast startup (WIP)
 - sane defaults
