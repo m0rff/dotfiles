@@ -1,4 +1,5 @@
 
+
 # - - - - - - - - - - - - - - - - - - - -
 # Zsh Core Configuration
 # - - - - - - - - - - - - - - - - - - - -
@@ -120,38 +121,22 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode compile"handler" for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
     zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node \
-    zdharma/declare-zsh
+    zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
-
-setopt promptsubst
 
 # Provide A Simple Prompt Till The Theme Loads
 PS1="READY >"
 zinit for \
     light-mode pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
-                
+
 # - - - - - - - - - - - - - - - - - - - -
 # Env
 # - - - - - - - - - - - - - - - - - - - -
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# - - - - - - - - - - - - - - - - - - - -
-# Git Plugins wait 1
-# - - - - - - - - - - - - - - - - - - - -
-zinit as"null" wait"1" lucid for \
-    sbin    Fakerr/git-recall \
-    sbin    cloneopts paulirish/git-open \
-    make"PREFIX=$ZPFX install" \
-            tj/git-extras \
-    sbin"bin/git-dsf;bin/diff-so-fancy" \
-            zdharma/zsh-diff-so-fancy \
 
 # - - - - - - - - - - - - - - - - - - - -
 # Plugins gottta go fast
@@ -160,16 +145,10 @@ zinit as"null" wait"1" lucid for \
 zinit wait lucid light-mode for \
       OMZ::lib/compfix.zsh \
       OMZ::lib/completion.zsh \
-      OMZ::lib/functions.zsh \
-      OMZ::lib/misc.zsh \
-      OMZ::lib/grep.zsh \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  as"completion" \
-      OMZ::plugins/docker/_docker \
-      OMZ::plugins/composer/composer.plugin.zsh
+      zsh-users/zsh-autosuggestions
 
 # - - - - - - - - - - - - - - - - - - - -
 # Aliases
@@ -192,5 +171,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # - - - - - - - - - - - - - - - - - - - -
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
